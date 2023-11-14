@@ -1,22 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
     [SerializeField] private float forceJump = 500f;
-    private bool ThenTuchPlane = true;
+    private bool Jumping = false;
     public Rigidbody rb;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Jumping == false)
         {
-            
-            if (ThenTuchPlane == false)
-            {
-                rb.AddForce(Vector3.up * forceJump);
-            }
-            
-        } 
+            rb.AddForce(Vector3.up * forceJump);
+
+            Jumping = true;
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+        {
+            Jumping = false;
+        }
     }
 }
