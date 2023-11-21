@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TouchPortal : MonoBehaviour
 {
+    [SerializeField] private String sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class TouchPortal : MonoBehaviour
         
          if (col.gameObject.CompareTag("Player"))
          {
-             SceneManager.LoadScene("Zone1");
+             SceneManager.LoadScene(sceneName);
          }
     }
 }
