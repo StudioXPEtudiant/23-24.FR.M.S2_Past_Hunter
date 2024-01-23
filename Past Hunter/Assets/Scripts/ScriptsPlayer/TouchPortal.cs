@@ -20,7 +20,7 @@ public class TouchPortal : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         
-         if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
          {
              SceneManager.LoadScene(sceneName);
          }
