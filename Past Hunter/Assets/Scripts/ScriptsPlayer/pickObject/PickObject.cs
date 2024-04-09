@@ -11,7 +11,7 @@ namespace ScriptsPlayer.pickObject
         private Transform holdAera;
 
         private GameObject helObj;
-        
+
 
         [Header("Physycs Parameters")] [SerializeField]
         private float pickupRange = 5.0f;
@@ -31,7 +31,9 @@ namespace ScriptsPlayer.pickObject
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
                     {
                         PickupObjectHello(hit.transform.gameObject);
+                        //Debug.Log("Tête de nueil");
                     }
+                    
                 }
                 
             }
@@ -76,6 +78,7 @@ namespace ScriptsPlayer.pickObject
         {
             if (helObj != null)
             {
+                //Debug.Log("Ho fuking dino qui ne marche pas");
                 Rigidbody helObjRB = helObj.GetComponent<Rigidbody>();
                 helObjRB.useGravity = true;
                 helObjRB.drag = 1; 
@@ -84,8 +87,10 @@ namespace ScriptsPlayer.pickObject
                 helObjRB.transform.parent = null;
                 helObj = null;
             }
-            
-        }
 
+        }
+        
     }
-}    
+
+}
+  
